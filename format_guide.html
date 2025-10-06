@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章格式指南</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .format-section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+        .format-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .feature-list {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        .feature-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .feature-list li:before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 1rem 0;
+        }
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 1rem;
+            border-left: 4px solid #2196f3;
+            margin: 1rem 0;
+        }
+        .example-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+        .example-link:hover {
+            background-color: #2980b9;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>文章格式指南</h1>
+    </header>
+    <main class="guide-container">
+        
+        <section class="format-section">
+            <h2>1. 支持的文章格式</h2>
+            <p>本网站支持四种主要的文章格式：</p>
+            <ul class="feature-list">
+                <li><strong>简洁版HTML</strong> - 推荐格式，支持完整的HTML基本标签、本地图片和本地视频</li>
+                <li><strong>Markdown格式 (.md)</strong> - 轻量级标记语言，支持标题、列表、引用、代码块和本地图片</li>
+                <li><strong>TXT格式</strong> - 最简单的格式，支持基本的文本内容和本地图片</li>
+                <li><strong>完整版HTML</strong> - 完全自定义的格式，适合高级用户</li>
+            </ul>
+        </section>
+        
+        <section class="format-section">
+            <h2>2. 简洁版HTML格式（推荐）</h2>
+            <p>简洁版HTML是平衡易用性和功能的最佳选择，特别适合快速创建包含图片和视频的文章。</p>
+            
+            <div class="highlight">
+                <strong>主要特点：</strong>支持本地图片和本地视频直接引用，无需上传到网络服务器！
+            </div>
+            
+            <h3>基本结构</h3>
+            <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="zh-CN"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;文章标题&lt;/title&gt;
+    &lt;meta name="description" content="文章简短描述"&gt;
+    &lt;meta name="date" content="2024-06-24"&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;文章标题&lt;/h1&gt;
+    &lt;p class="article-date"&gt;2024年6月24日&lt;/p&gt;
+    &lt;!-- 直接使用本地图片文件名 --&gt;
+    &lt;img src="test_image.svg" alt="图片描述"&gt;
+    &lt;!-- 直接使用本地视频文件名（可选）--&gt;
+    &lt;video controls&gt;
+        &lt;source src="your_video.mp4" type="video/mp4"&gt;
+        您的浏览器不支持HTML5视频播放。
+    &lt;/video&gt;
+    &lt;p&gt;文章内容段落1...&lt;/p&gt;
+    &lt;p&gt;文章内容段落2...&lt;/p&gt;
+    &lt;p&gt;&lt;a href="index.html"&gt;返回首页&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+            
+            <h3>本地图片使用方法</h3>
+            <ul class="feature-list">
+                <li>将图片文件（建议使用SVG格式）放在与HTML文件相同的目录中</li>
+                <li>在img标签的src属性中直接填写图片文件名，如：src="test_image.svg"</li>
+                <li>可以在文章的任何位置插入多个图片</li>
+                <li>系统会自动处理图片的加载和响应式显示</li>
+            </ul>
+            
+            <h3>本地视频使用方法</h3>
+            <ul class="feature-list">
+                <li>将视频文件（如MP4格式）放在与HTML文件相同的目录中</li>
+                <li>使用video标签并设置controls属性以显示播放控制</li>
+                <li>在source标签中，将src属性设置为视频文件名，type设置为正确的MIME类型</li>
+                <li>支持的视频格式：MP4 (.mp4)、WebM (.webm)、Ogg (.ogg)</li>
+                <li>可以同时提供多种格式的视频以确保兼容性</li>
+            </ul>
+            
+            <h3>视频标签常用属性</h3>
+            <ul class="feature-list">
+                <li><code>controls</code> - 显示播放控制</li>
+                <li><code>width</code> 和 <code>height</code> - 设置视频尺寸</li>
+                <li><code>autoplay</code> - 自动播放（通常需要静音）</li>
+                <li><code>loop</code> - 循环播放</li>
+                <li><code>muted</code> - 静音播放</li>
+            </ul>
+            
+            <h3>示例文章</h3>
+            <a href="wz_9.html" class="example-link">查看简洁版HTML示例（单图片）</a>
+            <a href="wz_10.html" class="example-link" style="margin-left: 1rem;">查看简洁版HTML示例（多图片）</a>
+        </section>
+        
+        <section class="format-section">
+            <h2>3. TXT格式</h2>
+            <p>TXT格式是最简单的选择，适合纯文本内容或简单的图文混排。</p>
+            
+            <h3>格式规范</h3>
+            <ul class="feature-list">
+                <li>第一行：文章标题</li>
+                <li>第二行：发布日期（格式：YYYY-MM-DD）</li>
+                <li>第三行：图片路径（如果有图片，填写图片文件名；无图片则留空）</li>
+                <li>第四行及以后：文章正文内容</li>
+            </ul>
+            
+            <div class="code-block">
+使用本地图片的测试文章
+2024-06-21
+test_image.svg
+这是一篇使用TXT格式创建的测试文章。
+
+TXT格式非常简单，只需要按照固定的格式编写即可。
+
+第一行是文章标题，第二行是日期，第三行是图片路径，第四行开始是正文内容。</div>
+            
+            <h3>示例文章</h3>
+            <a href="wz_8.txt" class="example-link">查看TXT格式示例</a>
+        </section>
+        
+        <section class="format-section">
+            <h2>4. 文件命名规范</h2>
+            <p>为了确保文章能被正确识别和显示，请遵循以下命名规范：</p>
+            <ul class="feature-list">
+                <li>简洁版HTML文件：<strong>wz_数字.html</strong>（例如：wz_9.html）</li>
+                <li>TXT文件：<strong>wz_数字.txt</strong>（例如：wz_8.txt）</li>
+                <li>图片文件：建议使用SVG格式，文件名可自定义（例如：test_image.svg）</li>
+            </ul>
+        </section>
+        
+    </main>
+    <footer>
+        <p><a href="index.html">返回首页</a></p>
+    </footer>
+</body>
+</html>
